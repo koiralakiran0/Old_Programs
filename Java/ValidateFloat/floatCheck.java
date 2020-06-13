@@ -12,7 +12,9 @@ public class floatCheck {
             again = false;
             System.out.print("Enter a value to check if it is a float: ");
             floatValue = scanner.nextLine();
-            System.out.println( ValidateNumbers.validateFloat(floatValue) );
+            ValidateNumbers vNumbers = new ValidateNumbers();
+            vNumbers.getFloatValue();
+            System.out.println("Valid Status: " + "");
 
             System.out.println("Would you like to go again? Enter 1 if you would like to go again");
             i = scanner.nextInt();
