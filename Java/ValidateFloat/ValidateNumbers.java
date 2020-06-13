@@ -6,9 +6,21 @@ public class ValidateNumbers {
             char c = floatValue.charAt(i);
             if (!Character.isDigit(c) && c != 'E' && c != '-' && c!= '.') {
                 return false;
-            } else if (true){
-
-            } 
+            } else if (c == 'E'){
+                if (i != floatValue.lastIndexOf('E')){
+                    return false;
+                }
+            } else if (c == '.'){
+                if (i != floatValue.lastIndexOf('.')){
+                    return false;
+                }
+            } else if (c == '-'){
+                if (i != 0){
+                    if (floatValue.charAt(i-1) != 'E'){
+                        return false;
+                    }
+                }
+            }
         }
         return true;
     }
