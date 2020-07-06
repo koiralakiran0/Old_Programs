@@ -5,6 +5,9 @@ public class EightQueens {
         int chessBoard[][] = new int[8][8];
         randomizeQueen(chessBoard);
         print(chessBoard);
+
+        int heuristic = rowCheck(chessBoard) + colCheck(chessBoard) + diagonalCheck(chessBoard);
+        System.out.println("Heuristic: "  + heuristic);
     }
 
     public static void randomizeQueen(int[][] chessBoard) {
@@ -21,6 +24,7 @@ public class EightQueens {
             }
             System.out.println();
         }
+        System.out.println("********************************************************");
     }
 
     public static int rowCheck(int[][] chessBoard){
@@ -89,19 +93,25 @@ public class EightQueens {
             row ++;
             col ++;
         }
-        return heuristic-1;
+        if (heuristic > 1){
+            return heuristic-1;
+        }
+        return 0;
     }
 
     public static int getHeuristicUp(int row, int col, int[][] chessBoard){
         int heuristic = 0;
 
-        while (row < 8 && col < 8){
+        while (row < 8 && col >= 0){
             if (chessBoard[row][col] == 1){
                 heuristic ++;
             }
             row ++;
             col --;
         }
-        return heuristic-1;
+        if (heuristic > 1){
+            return heuristic-1;
+        }
+        return 0;
     }
 }
