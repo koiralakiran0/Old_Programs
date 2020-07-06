@@ -44,4 +44,24 @@ public class EightQueens {
         }
         return found;
     }
+
+    public static int colCheck(int[][] chessBoard){
+
+        //Checks if there are any queen attacking vertically.
+        int counter = 0;
+        int found = 0;
+
+        for(int row = 0; row<chessBoard.length; row++) {
+            for(int col = 0; col<chessBoard.length; col++) {
+                counter = 0;
+                if (chessBoard[col][row] == 1) {
+                    counter++;
+                }
+            }
+            if (counter > 1) {
+                found+= counter - 1;
+            }
+        }
+        return found;
+    }
 }
