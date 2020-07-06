@@ -24,4 +24,24 @@ public class EightQueens {
             System.out.println();
         }
     }
+
+    public static int rowCheck(int[][] chessBoard){
+
+        //Checks if there are any queen attacking horizontally.
+        int counter = 0;
+        int found = 0;
+
+        for(int row = 0; row<chessBoard.length; row++) {
+            for(int col = 0; col<chessBoard.length; col++) {
+                counter = 0;
+                if (chessBoard[row][col] == 1) {
+                    counter++;
+                }
+            }
+            if (counter > 1) {
+                found+= counter - 1;
+            }
+        }
+        return found;
+    }
 }
