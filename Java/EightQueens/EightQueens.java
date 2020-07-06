@@ -33,14 +33,15 @@ public class EightQueens {
         int found = 0;
 
         for(int row = 0; row<chessBoard.length; row++) {
+            counter = 0;
             for(int col = 0; col<chessBoard.length; col++) {
-                counter = 0;
+                
                 if (chessBoard[row][col] == 1) {
                     counter++;
                 }
             }
-            if (counter > 1) {
-                found+= counter - 1;
+            if (counter > 1){
+                found += counter -1;
             }
         }
         return found;
@@ -51,10 +52,11 @@ public class EightQueens {
         int counter = 0;
         int found = 0;
 
-        for(int row = 0; row<chessBoard.length; row++) {
-            for(int col = 0; col<chessBoard.length; col++) {
-                counter = 0;
-                if (chessBoard[col][row] == 1) {
+        for(int col = 0; col<chessBoard.length; col++) {
+            counter = 0;
+            for(int row = 0; row<chessBoard.length; row++) {
+
+                if (chessBoard[row][col] == 1) {
                     counter++;
                 }
             }
