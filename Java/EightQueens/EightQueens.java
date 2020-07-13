@@ -3,18 +3,36 @@ package EightQueens;
 public class EightQueens {
     public static void main(String[] args) {
         int chessBoard[][] = new int[8][8];
+        int heuristicChart[][] = new int[8][8];
+
         randomizeQueen(chessBoard);
         print(chessBoard);
 
-        int heuristic = rowCheck(chessBoard) + colCheck(chessBoard) + diagonalCheck(chessBoard);
-        System.out.println("Heuristic: "  + heuristic);
+        int currentHeuristic = getHeuristic(chessBoard);
+        heuristicChart = getPotentialHeuristics(chessBoard);
+        System.out.println("Heuristic: "  + currentHeuristic);
     }
 
+    public static int[][] getPotentialHeuristics(int[][] chessBoard){
+        int chart[][] = new int[8][8];
+        int[][] tempChessBoard;
+        
+        for (int row = 0; row < chessBoard.length; row++){
+            for (int col = 0; col < chessBoard.length; col++){
+                
+            }
+        }
+        return chart;
+    }
     public static void randomizeQueen(int[][] chessBoard) {
         for (int row = 0; row < chessBoard.length; row++) {
             int randomQueen = (int) (Math.random() * chessBoard.length);
             chessBoard[row][randomQueen] = 1;
         }
+    }
+
+    public static int getHeuristic(int[][] chessBoard){
+        return rowCheck(chessBoard) + colCheck(chessBoard) + diagonalCheck(chessBoard);
     }
 
     public static void print(int[][] chessBoard){
